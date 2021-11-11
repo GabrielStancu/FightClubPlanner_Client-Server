@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center justify-content-center container-panel">
+    <div class="container-subpanel">
+        <img class="mb-4 logo" src="assets/gentleman.png" alt="" width="200" height="200">
+        <h1 class="h1 mb-3 font-weight-normal panel-text">Fight Club</h1>
+        <h1 class="h3 mb-3 font-weight-normal panel-text">By Gents,</h1>
+        <h1 class="h3 mb-3 font-weight-normal panel-text">For Gents</h1>
+  
+        <input name="usernameInput" type="text" id="inputUsername" class="form-control my-1" 
+               placeholder="Username" [(ngModel)]="username" spellcheck="false">
+        <input name="passwordInput" type="password" id="inputPassword" class="form-control" 
+               placeholder="Password" [(ngModel)]="password">
+       
+        <button class="btn btn-danger mt-3" type="submit" (click)="onLogin()" style="font-size: 1.6em;">Log in</button>
+
+        <p class="mt-5 mb-1 text-muted panel-text">Don't have an account? </p>
+        <b class="signup-router panel-text" routerLink="../signup">Sign up!</b>
+    </div>
+</div>
+
+    
+
+    
+    
+
+

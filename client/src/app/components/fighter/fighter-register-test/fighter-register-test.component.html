@@ -1,0 +1,31 @@
+<div class="form-froup row">
+
+  <label class="col-sm-6 col-form-label">Isolation Bubble</label>
+  <div class="col-sm-6">
+      <div class="btn-group">
+          <button type="button" class="modal-button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{dropdownText}}
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" *ngFor="let isolationBubble of isolationBubbles" (click)="onPickBubble(isolationBubble)">{{isolationBubble.name}}</a>
+          </div>
+        </div>
+  </div>
+
+  <label class="col-sm-6 col-form-label">Test Result</label>
+  <div class="col-sm-6">
+      <input type="checkbox" class="form-check-input checkbox modal-checkbox my-1" id="testCheck" [disabled]="disabledOwnTest" [(ngModel)]="isPositive">
+  </div>
+
+  <label class="col-sm-6 col-form-label">Eligible</label>
+  <div class="col-sm-6">
+      <input type="checkbox" class="form-check-input checkbox modal-checkbox" id="eligibleCheck" disabled>
+  </div>
+</div>
+
+<button class="btn modal-button" (click)="onRegisterTest()" [disabled]="isolationBubble == null">
+  Register Test
+</button>  
+
+
+    

@@ -1,0 +1,69 @@
+<div class="container">
+  <button type="button" class="btn btn-danger float-right m-2 helper-button" 
+  data-toggle="modal" data-target="#exampleModal"
+  (click)="onSignOut()"
+  data-backdrop="static" data-keyboard="false">
+  Sign Out
+  </button>
+
+    <!-- Button trigger modal -->
+  <button type="button" class="btn float-right m-2 modal-button" style="font-size: 1.55em;" 
+  data-toggle="modal" data-target="#exampleModal"
+  (click)="onAddTournament()"
+  data-backdrop="static" data-keyboard="false">
+  Add Tournament
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="onCloseModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-manager-add-tournament *ngIf="activatedModal === true">          
+          </app-manager-add-tournament>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>
+                Tournament Name
+              </th>
+              <th>
+              Department Location
+            </th>
+
+            <th>
+              Start Date
+            </th>
+
+              <th>Tournament Details</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let tournamentData of tournaments">
+              <td>{{tournamentData.name}}</td>
+              <td>{{tournamentData.location}}</td>
+              <td>{{tournamentData.startDateString}}</td>
+              <td>
+                  <button type="button" class="btn modal-button mr-1"
+                  data-toggle="modal" data-target="#exampleModal"
+                  (click)="onTournamentDetails(tournamentData)"
+                  data-backdrop="static" data-keyboard="false">
+                  View
+                  </button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

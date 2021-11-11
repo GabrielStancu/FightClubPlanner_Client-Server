@@ -1,0 +1,66 @@
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Register Test</h5>
+          <button type="button" class="close" 
+          data-dismiss="modal" aria-label="Close"
+          (click)="onCloseModal()" >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-fighter-register-test *ngIf="activatedModal"
+            [fighter] = "fighter">
+            </app-fighter-register-test>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="form-froup row">
+    <div class="col-sm-9">
+      <h3 class="table-title">Your Tests</h3>
+    </div>
+    
+
+
+    <div class="col-sm-2 col-form-label">
+      <label class="info-label" style="font-size: 1.2em;">Eligible</label>
+    </div>
+      
+      <div class="col-sm-1">
+        <input type="checkbox" class="form-check-input checkbox" id="testCheck" 
+               onClick="return false;" [(ngModel)]="eligibleFighter" style="margin-top: 1.6em; margin-right: 5em;">
+      </div>
+  </div>
+
+    
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>
+                    Date Taken
+                  </th>
+                  <th>
+                  Taken At
+                </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let testDecorator of testDecorators" [ngStyle]="{'background-color': testDecorator.stringToColor()}">
+                  <td>{{testDecorator.covidTestComponent.testDateString}}</td>
+                  <td>{{testDecorator.covidTestComponent.isolationBubbleName}}</td>
+              </tr>
+          </tbody>
+      </table>
+<!-- Button trigger modal -->
+<button type="button" class="btn float-right m-2 btn-danger helper-button" 
+data-toggle="modal" data-target="#exampleModal"
+(click)="onAddTest()"
+data-backdrop="static" data-keyboard="false">
+    Register Test
+  </button>
+  </div>

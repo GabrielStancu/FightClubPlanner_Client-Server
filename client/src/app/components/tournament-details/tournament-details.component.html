@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="btn-group">
+        <button type="button" class="btn modal-button dropdown-toggle float-left m-2" data-toggle="dropdown" 
+                aria-haspopup="true" aria-expanded="false" style="font-size: 1.55em;">
+          {{inviteFighterPickerText}}
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" *ngFor="let invitableFighter of invitableFighters" (click)="onPickInvitedFighter(invitableFighter)">{{invitableFighter.fullName}}</a>
+        </div>
+    </div>
+
+    <button type="button" class="btn float-left m-2 modal-button" style="font-size: 1.55em;" 
+        data-toggle="modal" data-target="#exampleModal"
+        (click)="onSendInvite()"
+        data-backdrop="static" data-keyboard="false" [disabled]="invitedFighterId === -1">
+        Invite
+    </button>
+
+    <button type="button" class="btn btn-danger float-right m-2 helper-button" 
+        (click)="onGoBack()">
+        Go Back
+    </button>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Fighter
+                </th>
+                <th>
+                    Age (Years)
+                </th>
+                <th>
+                    Weight (Kgs)
+                </th>
+                <th>
+                    Height (cms)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fighterDecorator of fighterDecorators" [ngStyle]="{'background-color': fighterDecorator.stringToColor()}">
+                <td>{{fighterDecorator.fighterComponent.fullName}}</td>
+                <td>{{fighterDecorator.fighterComponent.age}}</td>
+                <td>{{fighterDecorator.fighterComponent.weight}}</td>
+                <td>{{fighterDecorator.fighterComponent.height}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+        <button type="button" class="btn dropdown-toggle float-left m-2 modal-button" data-toggle="dropdown" aria-haspopup="true" 
+                aria-expanded="false" style="font-size: 1.55em;">
+          {{tournamentTypePickerText}}
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="onPickTournamentType(0)">Weekly tournament</a>
+          <a class="dropdown-item" (click)="onPickTournamentType(1)">Monthly tournament</a>
+        </div>
+    </div>
+
+    <button type="button" class="btn float-left m-2 modal-button" style="font-size: 1.55em;"
+        (click)="onGenerateFights()" [disabled]="tournamentType === undefined">
+        Generate Fights
+    </button>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                   First Fighter
+                </th>
+                <th>
+                   Second Fighter 
+                </th>    
+                <th>
+                   Date
+                </th> 
+                <th>
+                    Winner
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fightData of fights">
+                <td>{{fightData.fighterName1}}</td>
+                <td>{{fightData.fighterName2}}</td>
+                <td>{{fightData.fightTimeString}}</td>
+                <td *ngIf="fightData.winnerName == undefined">
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle modal-button" data-toggle="dropdown" aria-haspopup="true" 
+                                aria-expanded="false" [disabled]="isDisabledPicker(fightData)">
+                          Pick Winner
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" (click)="onPickWinner(fightData, fightData.fighterId1)">{{fightData.fighterName1}}</a>
+                          <a class="dropdown-item" (click)="onPickWinner(fightData, fightData.fighterId2)">{{fightData.fighterName2}}</a>
+                        </div>
+                    </div>
+                </td>
+                <td *ngIf="fightData.winnerName != undefined">
+                    {{fightData.winnerName}}  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

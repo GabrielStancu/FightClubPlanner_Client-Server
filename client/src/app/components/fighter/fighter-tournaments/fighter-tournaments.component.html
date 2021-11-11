@@ -1,0 +1,111 @@
+<div class="container">
+  <h3 class="table-title">Your Invites</h3>
+    <table class="table table-striped">
+        <thead class="table-header">
+            <tr>
+                <th>
+                  Tournament Name
+                </th>
+                <th> 
+                Location
+              </th>
+  
+              <th>
+                Date Sent
+              </th>
+
+              <th>
+                  Status
+              </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let inviteData of invites" [ngStyle]="{'background-color': inviteData.inviteState !== 0 ? (inviteData.inviteState === 1 ? '#4c956c':'#f94144') : ''}">
+                <td>{{inviteData.tournamentName}}</td>
+                <td>{{inviteData.tournamentLocation}}</td>
+                <td>{{inviteData.dateSentString}}</td>
+                <td *ngIf="isAnsweredInvite(inviteData) !== true"> 
+                  <div class="btn-group">
+                    <button type="button" class="dropdown-toggle modal-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Answer Invite
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" (click)="onAnswerInvite(inviteData, 1)">Accept</a>
+                      <a class="dropdown-item" (click)="onAnswerInvite(inviteData, 2)">Decline</a>
+                      <a class="dropdown-item" (click)="onAnswerInvite(inviteData, 0)">Don't Answer</a>
+                    </div>
+                  </div>
+                </td>
+                <td *ngIf="isAnsweredInvite(inviteData) === true">
+                  {{inviteData.inviteStateString}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+<div class="container">
+<h3 class="table-title">Your Tournaments</h3>
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>
+                Tournament Name
+              </th>
+              <th>
+              Location
+            </th>
+
+            <th>
+              Start Date
+            </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let tournamentData of tournaments">
+              <td>{{tournamentData.name}}</td>
+              <td>{{tournamentData.location}}</td>
+              <td>{{tournamentData.startDateString}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="container">
+    <h3 class="table-title">Your Fights</h3>
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>
+                    Tournament Name
+                  </th>
+                  <th>
+                  Date
+                </th>
+    
+                <th>
+                  First Fighter
+                </th>
+
+                <th>
+                Second Fighter
+              </th>
+
+              <th>
+              Winner
+            </th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fightData of fights" 
+            [ngStyle]="{'background-color': fightData.winnerId !== null ? (fightData.winnerId === fighterId ? '#4c956c':'#f94144') : ''}">
+              <td>{{fightData.tournamentName}}</td>
+              <td>{{fightData.fightTimeString}}</td>
+              <td>{{fightData.fighterName1}}</td>
+              <td>{{fightData.fighterName2}}</td>
+              <td *ngIf="fightData.winnerName != undefinded">{{fightData.winnerName}}</td>
+              <td *ngIf="fightData.winnerName == undefined">N/A</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>

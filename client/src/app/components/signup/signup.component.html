@@ -1,0 +1,34 @@
+<div class="d-flex align-items-center justify-content-center container-panel">
+    <div class="container-subpanel">
+            <img class="mb-4 logo" src="assets/gentleman.png" alt="" width="200" height="200">
+  
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{pickerText}}
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" (click)="onUserTypePick(1)">Fighter</a>
+              <a class="dropdown-item" (click)="onUserTypePick(0)">Manager</a>
+            </div>
+          </div>
+        <input name="usernameInput" type="text" id="inputUsername" class="form-control my-1" placeholder="Username" [(ngModel)]="username">
+        <input name="passwordInput" type="password" id="inputPassword" class="form-control" placeholder="Password" [(ngModel)]="password">
+        <input name="repeatedPasswordInput" type="password" id="inputRepeatedPassword" class="form-control my-1" placeholder="Password" [(ngModel)]="repeatedPassword">
+        <input name="firstNameInput" type="text" id="inputFirstName" class="form-control" placeholder="First Name" [(ngModel)]="firstName">
+        <input name="lastNameInput" type="text" id="inputLastName" class="form-control my-1" placeholder="Last Name" [(ngModel)]="lastName">
+        <input name="weightInput" type="number" id="inputWeight" class="form-control" 
+                placeholder="Weight (kg)" [(ngModel)]="weight" [disabled]="disabledFighterFields">
+        <input name="heightInput" type="number" id="inputHeight" class="form-control my-1" 
+                placeholder="Height (cm)" [(ngModel)]="height" [disabled]="disabledFighterFields">
+        <input name="birthdayInput" type="date" id="inputBirthday" class="form-control" 
+                placeholder="Birthday" [(ngModel)]="birthday" [disabled]="disabledFighterFields">
+       
+        <button class="btn btn-danger mt-3" type="submit" (click)="onSignup()" style="font-size: 1.6em;">Sign Up!</button>
+ 
+        <div class="text-center mt-2">
+            <b class="login-router mt-5 panel-text" routerLink="../login">Go Back</b>
+        </div>
+</div>
+
+
+

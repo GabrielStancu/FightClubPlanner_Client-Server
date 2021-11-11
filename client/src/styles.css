@@ -1,0 +1,161 @@
+body{
+    background-image: url('assets/boxing.jpg');
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.table-striped{
+    background-color: #d8dbe2;
+    
+    border-radius:8px;
+    -moz-border-radius:8px;
+    table-layout: fixed;
+    border-collapse:separate;
+    overflow-y: visible !important;
+}
+
+table.table-striped th{
+    background-color: #df4759;
+    text-align: center;
+    font-size: 1.5em;
+    color:white
+}
+
+table.table-striped td{
+    height: 3.5em;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.1em;
+}
+
+.table-title {
+    background-color: #181735;
+    color: white;
+    padding: 0.5em;
+    border-radius: 1rem;
+    width: fit-content;
+    font-size: 2em;
+    text-align: center;
+}
+
+.navbar {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin-bottom: 0.8em;
+}
+
+.nav-link{
+    font-size: 1.5em;
+}
+
+.dropdown-toggle{
+    background-color: #181735;
+    color: white;
+    font-size: 1em;
+}
+
+.dropdown-toggle::after{
+    color: white;
+}
+
+.logout-button{
+    float: right;
+    margin-right: 0.3em;
+    margin-top: 0.3em;
+    font-size: 1.2em;
+}
+
+.info-label {
+    background-color: #181735;
+    color: white;
+    padding: 0.5em;
+    border-radius: 1rem;
+    width: fit-content;
+    font-size: 1em;
+    text-align: center;
+    vertical-align: middle;
+    margin-top:0.6em;
+    margin-left: 5em;
+}
+
+.checkbox{
+    width:30px;
+    height:30px;
+    border-radius:5px;
+    border:2px solid #555;
+}
+
+input[type="checkbox"] {
+    -webkit-filter: grayscale(100%) brightness(70%) contrast(0.9);
+      filter: grayscale(100%) brightness(70%) contrast(0.9);
+
+    display: inline-block;
+  }
+
+.test-checkbox{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 18%;
+}
+
+.eligible-checkbox{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10.5%;
+    margin-top:1.25em;
+}
+
+.helper-button{
+    background-color: #df4759;
+    color: white;
+    font-size: 1.5em;
+}
+
+.helper-button:hover{
+    color: white;
+}
+
+.modal-header{
+    background-color: #df4759;
+}
+
+.modal-title{
+    color: white;
+    font-size: 1.5em;
+}
+
+.modal-button {
+    background-color: #181735;
+    color: white;
+    border-radius: 0.2rem;
+    font-size: 1.4rem;
+}
+
+.modal-button:hover{
+    background-color: #023e7d;
+    color: white;
+}
+
+.model-checkbox{
+    margin-left: 2em;
+    text-align: center;
+}
+
+.modal-dialog{
+    position: relative;
+    display: table; 
+    overflow-y: auto;    
+    overflow-x: auto;
+    width: auto;
+    max-width: 600px;   
+}
+
+input[type=checkbox] {
+    margin: 0 auto;
+    display: inline-block;
+}

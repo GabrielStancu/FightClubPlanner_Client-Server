@@ -1,0 +1,22 @@
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+        <input class="form-control my-1" type="text" placeholder="Tournament name" [(ngModel)]="tournamentName">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Location</label>
+    <div class="col-sm-10">
+        <input class="form-control" type="text" placeholder="Tournament location" [(ngModel)]="tournamentLocation">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Start Date</label>
+    <div class="col-sm-10">
+        <input name="startDateInput" type="date" id="inputStartDate" class="form-control my-1" 
+                placeholder="Start Date" [(ngModel)]="tournamentStartDate">
+    </div>
+</div>
+
+<button class="btn modal-button my-1" (click)="onCreateTournament()" [disabled]="allFieldsCompleted() == false">
+    Create Tournament 
+</button> 
